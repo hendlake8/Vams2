@@ -2,8 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Gem
+  - DropItem
+  - BossArena
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -13,13 +18,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - PlayerProjectile
+  - EnemyProjectile
+  - Gem
+  - DropItem
+  - BossArena
   - 
   - 
   - 
@@ -41,3 +46,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 332801758
+    locked: 0
+  - name: Drops
+    uniqueID: 100001
+    locked: 0
+  - name: Enemies
+    uniqueID: 100002
+    locked: 0
+  - name: Player
+    uniqueID: 1875862075
+    locked: 0
+  - name: Projectiles
+    uniqueID: 100003
+    locked: 0
+  - name: UI_World
+    uniqueID: 100004
+    locked: 0
+  m_RenderingLayers:
+  - Default

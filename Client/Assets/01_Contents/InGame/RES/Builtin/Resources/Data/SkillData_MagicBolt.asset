@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0678465e75f934b489778e1994c7a135, type: 3}
+  m_Name: SkillData_MagicBolt
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.SkillData
+  mSkillId: MagicBolt
+  mSkillName: "\uB9E4\uC9C1 \uBCFC\uD2B8"
+  mDescription: "\uAC00\uC7A5 \uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uB9C8\uBC95
+    \uD0C4\uD658\uC744 \uBC1C\uC0AC\uD55C\uB2E4"
+  mIcon: {fileID: 21300000, guid: 442cc738ea1967a46a4d317941a02ede, type: 3}
+  mSkillType: 0
+  mSkillCategory: 0
+  mBaseDamage:
+  - 10
+  - 12
+  - 14
+  - 17
+  - 20
+  mCooldown:
+  - 1
+  - 0.9
+  - 0.8
+  - 0.7
+  - 0.6
+  mSpecialValue:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  mProjectilePrefab: {fileID: 7705505970847087182, guid: 962f5578ccb65b84ead0c124b3cfbeef, type: 3}
+  mEffectPrefab: {fileID: 0}

@@ -1,0 +1,21 @@
+{
+  "active": false,
+  "topic": "최초 기획",
+  "phase": 1,
+  "sessionId": "882c13c2-53f8-4ce1-8886-3c3a4f381c6f",
+  "projectPath": "D:/GitPrjs/Vams2/Client",
+  "outputDir": "Docs/CM/최초 기획",
+  "triggerPercent": 80,
+  "saving": false,
+  "startedAt": "2026-03-26T00:00:00+09:00",
+  "phases": [
+    {
+      "phase": 1,
+      "startedAt": "2026-03-26T00:00:00+09:00",
+      "endedAt": "2026-03-27T00:00:00+09:00",
+      "trigger": "manual",
+      "pendingPrompt": null,
+      "files": { "chatLog": "Docs/CM/최초 기획/Phase_01/CHAT_LOG.md" }
+    }
+  ]
+}
