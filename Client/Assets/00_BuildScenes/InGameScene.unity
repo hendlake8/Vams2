@@ -167,6 +167,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14fa4a350b2675e4da2598760bc52851, type: 2}
   - {fileID: 11400000, guid: abccb73a1b222df469aced51611244de, type: 2}
   - {fileID: 11400000, guid: 0a29a3708e0e1544daabf42dce895986, type: 2}
+  mEvolutions:
+  - {fileID: 11400000, guid: a027336643fa64f4bb7c12573bf565ea, type: 2}
+  - {fileID: 11400000, guid: 7e37ec43dad9d4c4fb7821b1ffb16c7f, type: 2}
+  - {fileID: 11400000, guid: ed5e546afa85882439a282834ea2c22e, type: 2}
   mLevelUpUIPrefab: {fileID: 601765494437254984, guid: 70f3c7350e60bd24bbe26eaa3f679f8e, type: 3}
   mHudPrefab: {fileID: 8095764152290500882, guid: b09faf208e5b53e408500a41ad80d703, type: 3}
   mTileSprites:

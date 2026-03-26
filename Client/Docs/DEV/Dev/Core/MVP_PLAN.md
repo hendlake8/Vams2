@@ -165,32 +165,32 @@
 
 ### Phase 5-1: 리소스 생성 — M4용 (`/gi`)
 
-- [ ] 미니보스 3종 스프라이트 생성 (탑다운 판타지, 192×192, 투명 배경)
-- [ ] 최종 보스 스프라이트 생성 (탑다운 드래곤/마왕, 256×256, 투명 배경)
-- [ ] 진화 아이콘 3종 생성 (메테오 스트라이크, 썬더 스톰, 블레이드 배리어, 128×128)
-- [ ] 메테오 투사체 스프라이트 생성 (불타는 운석, 128×128, 투명 배경)
-- [ ] 보스 투사체 스프라이트 생성 (어둠 에너지 구체, 64×64, 투명 배경)
-- [ ] Unity Import 및 Textures/에 배치
+- [x] 미니보스 3종 스프라이트 생성 (탑다운 판타지, 192×192, 투명 배경)
+- [x] 최종 보스 스프라이트 생성 (탑다운 드래곤/마왕, 256×256, 투명 배경)
+- [x] 진화 아이콘 3종 생성 (메테오 스트라이크, 썬더 스톰, 블레이드 배리어, 128×128)
+- [x] 메테오 투사체 스프라이트 생성 (불타는 운석, 128×128, 투명 배경)
+- [x] 보스 투사체 스프라이트 생성 (어둠 에너지 구체, 64×64, 투명 배경)
+- [x] Unity Import 및 Textures/에 배치
 
 ### Phase 5-2: 스킬 진화 시스템 구현
 
-- [ ] EvolutionData ScriptableObject 정의 (필요 액티브, 필요 패시브, 결과 스킬)
-- [ ] EvolutionData 인스턴스 3개 생성 (파이어볼+원소핵, 라이트닝+마나서지, 회전검+마법갑옷)
-- [ ] SkillManager.CheckEvolution() 구현 (양쪽 Lv5 체크)
-- [ ] SkillManager.ExecuteEvolution() 구현 (슬롯 회수, 진화 스킬 장착)
-- [ ] 레벨업 UI에 진화 선택지 표시 (금색 테두리 + "진화!")
-- [ ] MeteorStrikeSkill 구현 (운석 낙하, 광역 폭발, DMG ×2, 반경 ×2)
-- [ ] ThunderStormSkill 구현 (화면 전체 번개, 전체 적 타격)
-- [ ] BladeBarrierSkill 구현 (회전 반경 확대, 넉백, DMG ×2)
+- [x] EvolutionData ScriptableObject 정의 (필요 액티브, 필요 패시브, 결과 스킬)
+- [x] EvolutionData 인스턴스 3개 생성 (파이어볼+원소핵, 라이트닝+마나서지, 회전검+마법갑옷)
+- [x] SkillManager.CheckEvolution() 구현 (양쪽 Lv5 체크)
+- [x] SkillManager.ExecuteEvolution() 구현 (슬롯 회수, 진화 스킬 장착)
+- [x] 레벨업 UI에 진화 선택지 표시 (금색 테두리 + "진화!")
+- [x] MeteorStrikeSkill 구현 (운석 낙하, 광역 폭발, DMG ×2, 반경 ×2)
+- [x] ThunderStormSkill 구현 (화면 전체 번개, 전체 적 타격)
+- [x] BladeBarrierSkill 구현 (회전 반경 확대, 넉백, DMG ×2)
 
 ### Phase 5-3: 보스 시스템 구현
 
-- [ ] BossArenaManager 구현 (원형 벽 생성/제거, EdgeCollider2D)
-- [ ] 보스 아레나 벽 스프라이트 코드 생성 (반투명 링)
-- [ ] 보스 EnemyData 4개 생성 (미니보스 3 + 최종보스 1, 원거리 공격)
-- [ ] EnemyBehaviour 보스용 확장 (원거리 투사체 패턴)
-- [ ] 보스 처치 시 아레나 해제 + 보상 드롭
-- [ ] M4 플레이 테스트 (진화 발동, 보스 아레나, 보스 전투)
+- [x] BossArenaManager 구현 (원형 벽 생성/제거, EdgeCollider2D)
+- [x] 보스 아레나 벽 스프라이트 코드 생성 (반투명 링)
+- [x] 보스 EnemyData 4개 생성 (미니보스 3 + 최종보스 1, 원거리 공격)
+- [x] EnemyBehaviour 보스용 확장 (원거리 투사체 패턴)
+- [x] 보스 처치 시 아레나 해제 + 보상 드롭
+- [x] M4 플레이 테스트 (진화 발동, 보스 아레나, 보스 전투)
 
 ### Phase 6-1: 리소스 생성 — M5용 (`/gi`)
 

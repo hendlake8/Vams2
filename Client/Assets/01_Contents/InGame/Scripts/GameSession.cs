@@ -27,6 +27,7 @@ namespace Vams2.InGame
         [SerializeField] private SkillData mMagicBoltData;
         [SerializeField] private SkillData[] mAllActiveSkills;
         [SerializeField] private SkillData[] mAllPassiveSkills;
+        [SerializeField] private Vams2.Data.EvolutionData[] mEvolutions;
 
         [Header("UI")]
         [SerializeField] private GameObject mLevelUpUIPrefab;
@@ -153,6 +154,10 @@ namespace Vams2.InGame
             GameObject managerGo = new GameObject("SkillManager");
             mSkillManager = managerGo.AddComponent<SkillManager>();
             mSkillManager.Initialize(mPlayerStats, mAllActiveSkills, mAllPassiveSkills);
+            if (mEvolutions != null)
+            {
+                mSkillManager.SetEvolutions(mEvolutions);
+            }
         }
 
         private void SetupLevelUpUI()
@@ -257,6 +262,15 @@ namespace Vams2.InGame
                 GameManager.Instance.SessionResult.mPlayTime = mElapsedTime;
                 GameManager.Instance.SessionResult.mPlayerLevel = mPlayerStats.Level;
             }
+
+            // 치트: F1 = 레벨업
+            #if UNITY_EDITOR
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            if (keyboard != null && keyboard.f1Key.wasPressedThisFrame && mPlayerStats != null)
+            {
+                mPlayerStats.AddExp(mPlayerStats.ExpToNextLevel - mPlayerStats.CurrentExp);
+            }
+            #endif
         }
     }
 }

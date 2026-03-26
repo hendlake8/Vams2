@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45742e8d51d27004ba6942b27479205e, type: 3}
+  m_Name: Evolution_ThunderStorm
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.EvolutionData
+  mRequiredActiveSkill: {fileID: 11400000, guid: 6fbc784911bc1e3479e9f24db2aac5ac, type: 2}
+  mRequiredPassiveSkill: {fileID: 11400000, guid: 6f32b2d389b7f1a469b4b17ff4a987be, type: 2}
+  mResultSkill: {fileID: 11400000, guid: ffe404c90dc058748b4b574fec696286, type: 2}
+  mEvolutionName: "\uC36C\uB354 \uC2A4\uD1B0"

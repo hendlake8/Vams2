@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a158b14252a604fb93ceeb8e041e5b, type: 3}
+  m_Name: EnemyData_FinalBoss
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.EnemyData
+  mEnemyId: final_boss
+  mEnemyName: "\uB4DC\uB798\uACE4 \uB124\uD06C\uB85C\uB9E8\uC11C"
+  mSprite: {fileID: 7351244623283399693, guid: 4f24603098fb43c4d9a1fb20a643554b, type: 3}
+  mAiType: 2
+  mIsBoss: 1
+  mBaseHp: 800
+  mBaseDamage: 25
+  mMoveSpeed: 1.5
+  mDropExp: 50
+  mAttackRange: 6
+  mAttackInterval: 1.5
+  mProjectilePrefab: {fileID: 203325271923966499, guid: d8d21997043d53946b376c1119fa417b, type: 3}
+  mSplitCount: 2
+  mSplitEnemyData: {fileID: 0}
+  mContactDamageInterval: 0.5

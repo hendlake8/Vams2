@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45742e8d51d27004ba6942b27479205e, type: 3}
+  m_Name: Evolution_MeteorStrike
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.EvolutionData
+  mRequiredActiveSkill: {fileID: 11400000, guid: 3085a2f7fd86ad941936ea2bf6f7d557, type: 2}
+  mRequiredPassiveSkill: {fileID: 11400000, guid: 14fa4a350b2675e4da2598760bc52851, type: 2}
+  mResultSkill: {fileID: 11400000, guid: ee642cfec77acb144a0214bce678c589, type: 2}
+  mEvolutionName: "\uBA54\uD14C\uC624 \uC2A4\uD2B8\uB77C\uC774\uD06C"

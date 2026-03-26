@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a158b14252a604fb93ceeb8e041e5b, type: 3}
+  m_Name: EnemyData_MiniBoss2
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.EnemyData
+  mEnemyId: miniboss2
+  mEnemyName: "\uD30C\uC774\uC5B4 \uACE8\uB818"
+  mSprite: {fileID: 8698045518455795814, guid: 0a6efc3ddfe922948b34327860228d40, type: 3}
+  mAiType: 2
+  mIsBoss: 1
+  mBaseHp: 300
+  mBaseDamage: 10
+  mMoveSpeed: 2
+  mDropExp: 15
+  mAttackRange: 6
+  mAttackInterval: 1.5
+  mProjectilePrefab: {fileID: 203325271923966499, guid: d8d21997043d53946b376c1119fa417b, type: 3}
+  mSplitCount: 2
+  mSplitEnemyData: {fileID: 0}
+  mContactDamageInterval: 0.5

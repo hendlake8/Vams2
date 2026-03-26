@@ -44,7 +44,8 @@ namespace Vams2.InGame.Skill
         public const int MAX_PASSIVE_SLOTS = 6;
 
         [SerializeField] private SkillData[] mAllActiveSkills;  // 전체 액티브 스킬 목록
-        [SerializeField] private SkillData[] mAllPassiveSkills;  // 전체 패시브 스킬 목록
+        [SerializeField] private SkillData[] mAllPassiveSkills;
+        [SerializeField] private EvolutionData[] mEvolutions;
 
         private List<SkillSlot> mActiveSlots;
         private List<SkillSlot> mPassiveSlots;
@@ -64,6 +65,11 @@ namespace Vams2.InGame.Skill
             mPassiveSlots = new List<SkillSlot>();
         }
 
+        public void SetEvolutions(EvolutionData[] evolutions)
+        {
+            mEvolutions = evolutions;
+        }
+
         // 스킬 추가 또는 업그레이드
         public void AddOrUpgradeSkill(SkillChoice choice)
         {
@@ -75,6 +81,83 @@ namespace Vams2.InGame.Skill
             {
                 HandlePassiveSkill(choice);
             }
+            else if (choice.mChoiceType == SkillChoiceType.Evolution)
+            {
+                ExecuteEvolution(choice.mSkillData);
+            }
+        }
+
+        private EvolutionData CheckEvolution()
+        {
+            if (mEvolutions == null) return null;
+
+            for (int e = 0; e < mEvolutions.Length; e++)
+            {
+                EvolutionData evo = mEvolutions[e];
+                SkillSlot activeSlot = FindSlot(mActiveSlots, evo.mRequiredActiveSkill);
+                SkillSlot passiveSlot = FindSlot(mPassiveSlots, evo.mRequiredPassiveSkill);
+
+                if (activeSlot != null && activeSlot.mLevel >= 5
+                    && passiveSlot != null && passiveSlot.mLevel >= 5)
+                {
+                    return evo;
+                }
+            }
+            return null;
+        }
+
+        private void ExecuteEvolution(SkillData resultSkill)
+        {
+            EvolutionData evo = null;
+            for (int i = 0; i < mEvolutions.Length; i++)
+            {
+                if (mEvolutions[i].mResultSkill == resultSkill)
+                {
+                    evo = mEvolutions[i];
+                    break;
+                }
+            }
+            if (evo == null) return;
+
+            // 기존 액티브 슬롯 제거
+            for (int i = mActiveSlots.Count - 1; i >= 0; i--)
+            {
+                if (mActiveSlots[i].mData == evo.mRequiredActiveSkill)
+                {
+                    if (mActiveSlots[i].mSkillInstance != null)
+                        Destroy(mActiveSlots[i].mSkillInstance.gameObject);
+                    mActiveSlots.RemoveAt(i);
+                    break;
+                }
+            }
+
+            // 기존 패시브 슬롯 제거
+            for (int i = mPassiveSlots.Count - 1; i >= 0; i--)
+            {
+                if (mPassiveSlots[i].mData == evo.mRequiredPassiveSkill)
+                {
+                    mPassiveSlots.RemoveAt(i);
+                    break;
+                }
+            }
+
+            // 진화 스킬 추가
+            SkillBase skillInstance = CreateSkillInstance(resultSkill);
+            if (skillInstance != null)
+            {
+                skillInstance.Initialize(resultSkill, 1, mPlayerStats);
+                SkillSlot slot = new SkillSlot(resultSkill, 1, skillInstance);
+                mActiveSlots.Add(slot);
+            }
+        }
+
+        private SkillSlot FindSlot(List<SkillSlot> slots, SkillData data)
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (slots[i].mData == data) return slots[i];
+            }
+            return null;
         }
 
         private void HandleActiveSkill(SkillChoice choice)
@@ -166,6 +249,17 @@ namespace Vams2.InGame.Skill
         public List<SkillChoice> GetRandomChoices(int count)
         {
             List<SkillChoice> candidates = new List<SkillChoice>();
+
+            // 0. 진화 체크 (최우선)
+            EvolutionData evo = CheckEvolution();
+            if (evo != null)
+            {
+                SkillChoice evoChoice = new SkillChoice();
+                evoChoice.mChoiceType = SkillChoiceType.Evolution;
+                evoChoice.mSkillData = evo.mResultSkill;
+                evoChoice.mNextLevel = 1;
+                candidates.Add(evoChoice);
+            }
 
             // 1. 기존 스킬 업그레이드 (Lv < 5)
             for (int i = 0; i < mActiveSlots.Count; i++)
@@ -331,6 +425,18 @@ namespace Vams2.InGame.Skill
                     if (cloudSprite != null)
                         poison.SetCloudSprite(cloudSprite);
                     skill = poison;
+                    break;
+
+                case "MeteorStrike":
+                    skill = skillGo.AddComponent<MeteorStrikeSkill>();
+                    break;
+
+                case "ThunderStorm":
+                    skill = skillGo.AddComponent<ThunderStormSkill>();
+                    break;
+
+                case "BladeBarrier":
+                    skill = skillGo.AddComponent<BladeBarrierSkill>();
                     break;
 
                 default:
