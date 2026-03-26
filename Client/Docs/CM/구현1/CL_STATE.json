@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "topic": "구현1",
   "phase": 1,
   "sessionId": "882c13c2-53f8-4ce1-8886-3c3a4f381c6f",
@@ -12,10 +12,10 @@
     {
       "phase": 1,
       "startedAt": "2026-03-27T00:00:00+09:00",
-      "endedAt": null,
-      "trigger": null,
+      "endedAt": "2026-03-27T00:00:00+09:00",
+      "trigger": "manual",
       "pendingPrompt": null,
-      "files": { "chatLog": null }
+      "files": { "chatLog": "Docs/CM/구현1/Phase_01/CHAT_LOG.md" }
     }
   ]
 }

@@ -16,8 +16,14 @@ namespace Vams2.InGame.Enemy
         private SpriteRenderer mSpriteRenderer;
         private float mContactDamageTimer;
         private float mRangedAttackTimer;
+        private System.Action mOnDeathCallback;
 
         public EnemyData EnemyData => mEnemyData;
+
+        public void SetOnDeathCallback(System.Action callback)
+        {
+            mOnDeathCallback = callback;
+        }
 
         public void Initialize(EnemyData data, Transform target, float hpScale)
         {
@@ -151,6 +157,12 @@ namespace Vams2.InGame.Enemy
 
         private void OnDeath()
         {
+            // 킬 카운트 증가
+            if (Vams2.Core.GameManager.Instance != null)
+            {
+                Vams2.Core.GameManager.Instance.SessionResult.mKillCount++;
+            }
+
             if (mDrop != null)
             {
                 mDrop.SpawnDrops(transform.position);
@@ -160,6 +172,13 @@ namespace Vams2.InGame.Enemy
             if (mEnemyData.mAiType == EnemyAiType.EliteSplit && mEnemyData.mSplitEnemyData != null)
             {
                 SpawnSplitEnemies();
+            }
+
+            // 보스 사망 콜백
+            if (mOnDeathCallback != null)
+            {
+                mOnDeathCallback();
+                mOnDeathCallback = null;
             }
 
             mRigidbody.linearVelocity = Vector2.zero;

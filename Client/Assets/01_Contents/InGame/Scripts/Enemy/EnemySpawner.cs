@@ -42,6 +42,11 @@ namespace Vams2.InGame.Enemy
             mEnemyPrefab = prefab;
         }
 
+        public GameObject GetEnemyPrefab()
+        {
+            return mEnemyPrefab;
+        }
+
         public void AddSpawnRequest(EnemyData data, float interval, int countPerSpawn)
         {
             SpawnRequest request = new SpawnRequest();

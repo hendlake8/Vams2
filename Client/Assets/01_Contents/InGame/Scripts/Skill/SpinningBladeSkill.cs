@@ -15,7 +15,6 @@ namespace Vams2.InGame.Skill
         private float mRotationSpeed = 180f;
         private float mOrbitRadius = 1.5f;
         private float mCurrentAngle;
-        private float mDamageInterval = 0.3f;
         private int mEnemyLayerMask;
 
         public void SetBladeSprite(Sprite sprite)

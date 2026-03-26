@@ -194,48 +194,48 @@
 
 ### Phase 6-1: 리소스 생성 — M5용 (`/gi`)
 
-- [ ] 타이틀 로고 생성 ("Vams2" 판타지 스타일, 512×256, 투명 배경)
-- [ ] UI 카드 프레임 생성 (판타지 RPG 카드 배경, 256×384, 반투명)
-- [ ] UI 버튼 프레임 생성 (판타지 RPG 버튼, 256×96, 투명 배경)
-- [ ] Unity Import 및 Textures/UI/에 배치
+- [x] 타이틀 로고 생성 ("Vams2" 판타지 스타일, 512×256, 투명 배경)
+- [x] UI 카드 프레임 생성 (판타지 RPG 카드 배경, 256×384, 반투명)
+- [x] UI 버튼 프레임 생성 (판타지 RPG 버튼, 256×96, 투명 배경)
+- [x] Unity Import 및 Textures/UI/에 배치
 
 ### Phase 6-2: 웨이브 시스템 구현
 
-- [ ] WaveData ScriptableObject 정의 (WaveEntry 리스트: 시작시간, 종료시간, 적 종류, 스폰 간격, 보스 여부)
-- [ ] 5분 세션 WaveData 인스턴스 작성 (GDD 웨이브 페이싱 테이블 반영)
-- [ ] WaveManager 구현 (시간 경과 추적, WaveEntry 기반 스폰 트리거, 보스 스폰 연동)
-- [ ] 세션 종료 판정 (5분 경과 or 최종 보스 처치 → GameManager.EndGame())
+- [x] WaveData ScriptableObject 정의 (WaveEntry 리스트: 시작시간, 종료시간, 적 종류, 스폰 간격, 보스 여부)
+- [x] 5분 세션 WaveData 인스턴스 작성 (GDD 웨이브 페이싱 테이블 반영)
+- [x] WaveManager 구현 (시간 경과 추적, WaveEntry 기반 스폰 트리거, 보스 스폰 연동)
+- [x] 세션 종료 판정 (5분 경과 or 최종 보스 처치 → GameManager.EndGame())
 
 ### Phase 6-3: 드롭 아이템 구현
 
-- [ ] DropItem 구현 (Heal, Magnet, Bomb, Gold 타입별 효과)
-- [ ] 회복 고기: HP 20% 회복
-- [ ] 자석: 화면 내 모든 보석 즉시 흡수
-- [ ] 폭탄: 화면 내 모든 적에게 50 데미지
-- [ ] 골드: SessionResult에 골드 추가
-- [ ] EnemyDrop에 아이템 드롭 확률 추가
-- [ ] 드롭 아이템 오브젝트 풀 설정
+- [x] DropItem 구현 (Heal, Magnet, Bomb, Gold 타입별 효과)
+- [x] 회복 고기: HP 20% 회복
+- [x] 자석: 화면 내 모든 보석 즉시 흡수
+- [x] 폭탄: 화면 내 모든 적에게 50 데미지
+- [x] 골드: SessionResult에 골드 추가
+- [x] EnemyDrop에 아이템 드롭 확률 추가
+- [x] 드롭 아이템 오브젝트 풀 설정
 
 ### Phase 6-4: 결과 화면 구현
 
-- [ ] SessionResult 데이터 구조 정의 (처치 수, 레벨, 플레이 타임)
-- [ ] ResultScreenUI 구현 (클리어/패배 표시, 처치 수, 레벨, 타임)
-- [ ] 로비 복귀 버튼 → SceneLoader.LoadScene("LobbyScene")
-- [ ] ResultScene 조립
+- [x] SessionResult 데이터 구조 정의 (처치 수, 레벨, 플레이 타임)
+- [x] ResultScreenUI 구현 (클리어/패배 표시, 처치 수, 레벨, 타임)
+- [x] 로비 복귀 버튼 → SceneLoader.LoadScene("LobbyScene")
+- [x] ResultScene 조립
 
 ### Phase 6-5: 로비 & 타이틀 화면 구현
 
-- [ ] TitleUI 구현 (로고 표시, 터치하여 시작)
-- [ ] TitleScene 조립
-- [ ] LobbyUI 기본 구현 (캐릭터 정보 표시, 출격 버튼)
-- [ ] LobbyScene 조립
-- [ ] 장비/합성 버튼 배치 (비활성, MVP 이후)
+- [x] TitleUI 구현 (로고 표시, 터치하여 시작)
+- [x] TitleScene 조립
+- [x] LobbyUI 기본 구현 (캐릭터 정보 표시, 출격 버튼)
+- [x] LobbyScene 조립
+- [x] 장비/합성 버튼 배치 (비활성, MVP 이후)
 
 ### Phase 6-6: 게임 플로우 통합 & 최종 테스트
 
-- [ ] GameManager 전체 플로우 연결 (Title → Lobby → InGame → Result → Lobby)
-- [ ] SessionResult 데이터 InGame → Result 전달
-- [ ] PlayerCombat 사망 시 GameManager.EndGame(false) 호출
-- [ ] 전체 5분 세션 플레이 테스트
-- [ ] 웨이브 밸런스 조정 (적 밀도, 보스 타이밍)
-- [ ] 성능 확인 (적 100+ 동시 존재 시 프레임 체크)
+- [x] GameManager 전체 플로우 연결 (Title → Lobby → InGame → Result → Lobby)
+- [x] SessionResult 데이터 InGame → Result 전달
+- [x] PlayerCombat 사망 시 GameManager.EndGame(false) 호출
+- [x] 전체 5분 세션 플레이 테스트
+- [x] 웨이브 밸런스 조정 (적 밀도, 보스 타이밍)
+- [x] 성능 확인 (적 100+ 동시 존재 시 프레임 체크)

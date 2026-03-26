@@ -155,6 +155,7 @@ MonoBehaviour:
   mExpGemLargePrefab: {fileID: 5898467996291423904, guid: 55da5bf0ec258514083bd1d3827357f6, type: 3}
   mSlimeData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
   mMagicBoltData: {fileID: 11400000, guid: 33e723f9a6acffb448f81e39698a8c02, type: 2}
+  mWaveData: {fileID: 11400000, guid: 24226855eecc10345819aff4c715a9ee, type: 2}
   mAllActiveSkills:
   - {fileID: 11400000, guid: 33e723f9a6acffb448f81e39698a8c02, type: 2}
   - {fileID: 11400000, guid: 6f56f351d16aad942aa99d37029156e3, type: 2}

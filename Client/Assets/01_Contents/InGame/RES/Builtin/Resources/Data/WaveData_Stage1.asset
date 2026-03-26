@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbe046a117ab9748832369323b12fc6, type: 3}
+  m_Name: WaveData_Stage1
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.WaveData
+  mWaveName: Stage1_Forest
+  mSessionDuration: 300
+  mEntries:
+  - mStartTime: 0
+    mEndTime: 50
+    mEnemyData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
+    mSpawnInterval: 1
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 50
+    mEndTime: 90
+    mEnemyData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
+    mSpawnInterval: 0.8
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 50
+    mEndTime: 90
+    mEnemyData: {fileID: 11400000, guid: 613abbdb1de4c4a44a55ee0e6ba4d6ec, type: 2}
+    mSpawnInterval: 1.2
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 90
+    mEndTime: 91
+    mEnemyData: {fileID: 11400000, guid: f28a77fc7d2cb4e4a960709c8c324b65, type: 2}
+    mSpawnInterval: 0
+    mSpawnCount: 1
+    mIsBoss: 1
+  - mStartTime: 90
+    mEndTime: 150
+    mEnemyData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
+    mSpawnInterval: 0.7
+    mSpawnCount: 2
+    mIsBoss: 0
+  - mStartTime: 90
+    mEndTime: 150
+    mEnemyData: {fileID: 11400000, guid: 613abbdb1de4c4a44a55ee0e6ba4d6ec, type: 2}
+    mSpawnInterval: 1
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 90
+    mEndTime: 150
+    mEnemyData: {fileID: 11400000, guid: bd453054f5c432f4298272973e16b153, type: 2}
+    mSpawnInterval: 1.5
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 150
+    mEndTime: 151
+    mEnemyData: {fileID: 11400000, guid: 1963753299aceff4eba0c15115230f94, type: 2}
+    mSpawnInterval: 0
+    mSpawnCount: 1
+    mIsBoss: 1
+  - mStartTime: 150
+    mEndTime: 240
+    mEnemyData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
+    mSpawnInterval: 0.5
+    mSpawnCount: 3
+    mIsBoss: 0
+  - mStartTime: 150
+    mEndTime: 240
+    mEnemyData: {fileID: 11400000, guid: 613abbdb1de4c4a44a55ee0e6ba4d6ec, type: 2}
+    mSpawnInterval: 0.8
+    mSpawnCount: 2
+    mIsBoss: 0
+  - mStartTime: 150
+    mEndTime: 240
+    mEnemyData: {fileID: 11400000, guid: bd453054f5c432f4298272973e16b153, type: 2}
+    mSpawnInterval: 1
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 240
+    mEndTime: 241
+    mEnemyData: {fileID: 11400000, guid: 7933f15fa1c1eb14aa5884eb1913c663, type: 2}
+    mSpawnInterval: 0
+    mSpawnCount: 1
+    mIsBoss: 1
+  - mStartTime: 240
+    mEndTime: 270
+    mEnemyData: {fileID: 11400000, guid: 7d8b972b830a3724a8235e6bc453c4c6, type: 2}
+    mSpawnInterval: 0.3
+    mSpawnCount: 4
+    mIsBoss: 0
+  - mStartTime: 240
+    mEndTime: 270
+    mEnemyData: {fileID: 11400000, guid: 613abbdb1de4c4a44a55ee0e6ba4d6ec, type: 2}
+    mSpawnInterval: 0.5
+    mSpawnCount: 2
+    mIsBoss: 0
+  - mStartTime: 240
+    mEndTime: 270
+    mEnemyData: {fileID: 11400000, guid: abc0adc5732cb4b45a04606140163caf, type: 2}
+    mSpawnInterval: 2
+    mSpawnCount: 1
+    mIsBoss: 0
+  - mStartTime: 270
+    mEndTime: 271
+    mEnemyData: {fileID: 11400000, guid: 5adce15567fbfdf41bb52a970ebd19c0, type: 2}
+    mSpawnInterval: 0
+    mSpawnCount: 1
+    mIsBoss: 1

@@ -17,11 +17,72 @@ namespace Vams2.InGame.Drop
         [SerializeField] private DropItemType mItemType;
         [SerializeField] private float mValue;
 
+        private SpriteRenderer mSpriteRenderer;
+        private float mAnimTimer;
+        private Vector3 mBasePosition;
+        private Color mPulseColor;
+
         public void Initialize(DropItemType itemType, float value, Vector3 position)
         {
             mItemType = itemType;
             mValue = value;
             transform.position = position;
+            mBasePosition = position;
+            mAnimTimer = Random.Range(0f, Mathf.PI * 2f);
+
+            mSpriteRenderer = GetComponent<SpriteRenderer>();
+            if (mSpriteRenderer != null)
+            {
+                mSpriteRenderer.sortingLayerName = "Drops";
+                string spriteName = GetSpriteNameForType(itemType);
+                #if UNITY_EDITOR
+                Sprite spr = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(
+                    "Assets/01_Contents/InGame/RES/Bundle/Textures/Drop/" + spriteName + ".png");
+                if (spr != null) mSpriteRenderer.sprite = spr;
+                #endif
+            }
+
+            mPulseColor = GetPulseColorForType(itemType);
+        }
+
+        private void Update()
+        {
+            mAnimTimer += Time.deltaTime * 3.5f;
+
+            // 색상 펄스
+            if (mSpriteRenderer != null)
+            {
+                float pulse = 0.6f + 0.4f * Mathf.Sin(mAnimTimer);
+                mSpriteRenderer.color = Color.Lerp(Color.white, mPulseColor, pulse);
+            }
+
+            // 바운스
+            float bounce = Mathf.Sin(mAnimTimer * 0.7f) * 0.12f;
+            transform.position = mBasePosition + new Vector3(0f, bounce, 0f);
+        }
+
+        private Color GetPulseColorForType(DropItemType type)
+        {
+            switch (type)
+            {
+                case DropItemType.Heal: return new Color(1f, 0.5f, 0.5f);
+                case DropItemType.Magnet: return new Color(1f, 0.3f, 0.3f);
+                case DropItemType.Bomb: return new Color(1f, 0.6f, 0f);
+                case DropItemType.Gold: return new Color(1f, 1f, 0.3f);
+                default: return Color.white;
+            }
+        }
+
+        private string GetSpriteNameForType(DropItemType type)
+        {
+            switch (type)
+            {
+                case DropItemType.Heal: return "drop_heal_meat";
+                case DropItemType.Magnet: return "drop_magnet";
+                case DropItemType.Bomb: return "drop_bomb";
+                case DropItemType.Gold: return "drop_gold_coin";
+                default: return "drop_heal_meat";
+            }
         }
 
         public void OnPickedUp(PlayerStats stats)

@@ -25,6 +25,7 @@ namespace Vams2.InGame
         [Header("데이터")]
         [SerializeField] private EnemyData mSlimeData;
         [SerializeField] private SkillData mMagicBoltData;
+        [SerializeField] private Vams2.Data.WaveData mWaveData;
         [SerializeField] private SkillData[] mAllActiveSkills;
         [SerializeField] private SkillData[] mAllPassiveSkills;
         [SerializeField] private Vams2.Data.EvolutionData[] mEvolutions;
@@ -47,10 +48,8 @@ namespace Vams2.InGame
         private SkillManager mSkillManager;
         private LevelUpUI mLevelUpUI;
         private HudController mHud;
-        private float mSpawnTimer;
-        private float mSpawnInterval = 1.0f;
+        private Wave.WaveManager mWaveManager;
         private float mElapsedTime;
-        private int mKillCount;
 
         private void Start()
         {
@@ -64,10 +63,9 @@ namespace Vams2.InGame
             SetupLevelUpUI();
             SetupPlayerSkill();
             SetupHud();
+            SetupWaveManager();
 
             mElapsedTime = 0f;
-            mKillCount = 0;
-            mSpawnTimer = 0f;
         }
 
         private void SetupPlayer()
@@ -147,6 +145,13 @@ namespace Vams2.InGame
         private void SetupDropSystem()
         {
             EnemyDrop.SetGemPrefabs(mExpGemSmallPrefab, mExpGemLargePrefab);
+
+            // DropItem 프리팹 로드
+            GameObject dropItemPrefab = Resources.Load<GameObject>("Prefabs/DropItem");
+            if (dropItemPrefab != null)
+            {
+                EnemyDrop.SetDropItemPrefab(dropItemPrefab);
+            }
         }
 
         private void SetupSkillManager()
@@ -224,6 +229,33 @@ namespace Vams2.InGame
             return mElapsedTime;
         }
 
+        private void SetupWaveManager()
+        {
+            GameObject waveGo = new GameObject("WaveManager");
+            mWaveManager = waveGo.AddComponent<Wave.WaveManager>();
+
+            // BossArenaManager도 추가
+            waveGo.AddComponent<Wave.BossArenaManager>();
+
+            if (mWaveData != null)
+            {
+                mWaveManager.Initialize(mWaveData, mEnemySpawner);
+                mWaveManager.OnSessionComplete = OnSessionComplete;
+            }
+            else
+            {
+                // WaveData 없으면 슬라임만 기본 스폰 (하위 호환)
+            }
+        }
+
+        private void OnSessionComplete()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EndGame(true);
+            }
+        }
+
         private void SetupPlayerSkill()
         {
             if (mMagicBoltData == null || mSkillManager == null)
@@ -243,18 +275,7 @@ namespace Vams2.InGame
         {
             mElapsedTime += Time.deltaTime;
 
-            if (mEnemySpawner != null)
-            {
-                mEnemySpawner.SetElapsedTime(mElapsedTime);
-
-                // 간단한 슬라임 스폰 (M1: 웨이브 매니저 없이 타이머 기반)
-                mSpawnTimer += Time.deltaTime;
-                if (mSpawnTimer >= mSpawnInterval && mSlimeData != null)
-                {
-                    mSpawnTimer = 0f;
-                    mEnemySpawner.SpawnEnemy(mSlimeData);
-                }
-            }
+            // WaveManager가 적 스폰을 관리 (자체 Update에서 처리)
 
             // 세션 결과 업데이트
             if (GameManager.Instance != null && mPlayerStats != null)
