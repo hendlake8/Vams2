@@ -157,7 +157,16 @@ MonoBehaviour:
   mMagicBoltData: {fileID: 11400000, guid: 33e723f9a6acffb448f81e39698a8c02, type: 2}
   mAllActiveSkills:
   - {fileID: 11400000, guid: 33e723f9a6acffb448f81e39698a8c02, type: 2}
-  mAllPassiveSkills: []
+  - {fileID: 11400000, guid: 6f56f351d16aad942aa99d37029156e3, type: 2}
+  - {fileID: 11400000, guid: 3085a2f7fd86ad941936ea2bf6f7d557, type: 2}
+  - {fileID: 11400000, guid: 11abcc3eb30358b46bc08d4e89af83ba, type: 2}
+  - {fileID: 11400000, guid: 6fbc784911bc1e3479e9f24db2aac5ac, type: 2}
+  - {fileID: 11400000, guid: 55c5997d281cbed4391f3caafbb0de8f, type: 2}
+  mAllPassiveSkills:
+  - {fileID: 11400000, guid: 6f32b2d389b7f1a469b4b17ff4a987be, type: 2}
+  - {fileID: 11400000, guid: 14fa4a350b2675e4da2598760bc52851, type: 2}
+  - {fileID: 11400000, guid: abccb73a1b222df469aced51611244de, type: 2}
+  - {fileID: 11400000, guid: 0a29a3708e0e1544daabf42dce895986, type: 2}
   mLevelUpUIPrefab: {fileID: 601765494437254984, guid: 70f3c7350e60bd24bbe26eaa3f679f8e, type: 3}
   mHudPrefab: {fileID: 8095764152290500882, guid: b09faf208e5b53e408500a41ad80d703, type: 3}
   mTileSprites:

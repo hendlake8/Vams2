@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a158b14252a604fb93ceeb8e041e5b, type: 3}
+  m_Name: EnemyData_Skeleton
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.EnemyData
+  mEnemyId: skeleton
+  mEnemyName: "\uC2A4\uCF08\uB808\uD1A4"
+  mSprite: {fileID: 21300000, guid: c2f7129f7c8315f418bc7b9bf46d1b7a, type: 3}
+  mAiType: 2
+  mIsBoss: 0
+  mBaseHp: 20
+  mBaseDamage: 10
+  mMoveSpeed: 2.5
+  mDropExp: 3
+  mAttackRange: 5
+  mAttackInterval: 2
+  mProjectilePrefab: {fileID: 203325271923966499, guid: d8d21997043d53946b376c1119fa417b, type: 3}
+  mSplitCount: 2
+  mSplitEnemyData: {fileID: 0}
+  mContactDamageInterval: 0.5

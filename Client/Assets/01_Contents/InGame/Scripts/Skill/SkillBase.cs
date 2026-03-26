@@ -53,6 +53,17 @@ namespace Vams2.InGame.Skill
 
         protected abstract void Execute();
 
+        // 쿨다운 진행 비율 (0=사용 가능, 1=쿨다운 중)
+        public virtual float GetCooldownRatio()
+        {
+            if (mSkillData == null) return 0f;
+            float cooldown = mSkillData.GetCooldown(mLevel);
+            if (cooldown <= 0f) return 0f;
+            float speedBonus = mPlayerStats != null ? mPlayerStats.AttackSpeedBonus : 0f;
+            float adjustedCooldown = cooldown / (1f + speedBonus);
+            return 1f - Mathf.Clamp01(mCooldownTimer / adjustedCooldown);
+        }
+
         // 가장 가까운 적 찾기 (최대 사거리 제한)
         private const float MAX_ATTACK_RANGE = 10f;
 

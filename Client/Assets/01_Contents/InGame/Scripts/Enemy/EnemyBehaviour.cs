@@ -13,7 +13,9 @@ namespace Vams2.InGame.Enemy
         private Rigidbody2D mRigidbody;
         private EnemyHealth mHealth;
         private EnemyDrop mDrop;
+        private SpriteRenderer mSpriteRenderer;
         private float mContactDamageTimer;
+        private float mRangedAttackTimer;
 
         public EnemyData EnemyData => mEnemyData;
 
@@ -25,30 +27,28 @@ namespace Vams2.InGame.Enemy
             mRigidbody = GetComponent<Rigidbody2D>();
             mHealth = GetComponent<EnemyHealth>();
             mDrop = GetComponent<EnemyDrop>();
+            mSpriteRenderer = GetComponent<SpriteRenderer>();
 
-            // 스프라이트 설정
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            if (sr != null)
+            if (mSpriteRenderer != null)
             {
                 if (data.mSprite != null)
                 {
-                    sr.sprite = data.mSprite;
+                    mSpriteRenderer.sprite = data.mSprite;
                 }
-                sr.sortingLayerName = "Enemies";
+                mSpriteRenderer.sortingLayerName = "Enemies";
             }
 
-            // 체력 초기화 (시간 스케일링 적용)
             float scaledHp = data.mBaseHp * hpScale;
             mHealth.Initialize(scaledHp);
             mHealth.OnDeath = OnDeath;
 
-            // 드롭 초기화
             if (mDrop != null)
             {
                 mDrop.Initialize(data.mDropExp);
             }
 
             mContactDamageTimer = 0f;
+            mRangedAttackTimer = 0f;
         }
 
         private void FixedUpdate()
@@ -66,8 +66,14 @@ namespace Vams2.InGame.Enemy
                     ChaseTarget();
                     break;
                 case EnemyAiType.Ranged:
-                    ChaseTarget();
+                    RangedBehaviour();
                     break;
+            }
+
+            // X축 이동 방향에 따라 좌우 반전
+            if (mSpriteRenderer != null && mRigidbody.linearVelocity.x != 0f)
+            {
+                mSpriteRenderer.flipX = mRigidbody.linearVelocity.x > 0f;
             }
         }
 
@@ -75,6 +81,53 @@ namespace Vams2.InGame.Enemy
         {
             Vector2 direction = ((Vector2)mTarget.position - (Vector2)transform.position).normalized;
             mRigidbody.linearVelocity = direction * mEnemyData.mMoveSpeed;
+        }
+
+        private void RangedBehaviour()
+        {
+            float distToTarget = Vector2.Distance(transform.position, mTarget.position);
+
+            // 사거리 밖이면 접근
+            if (distToTarget > mEnemyData.mAttackRange)
+            {
+                ChaseTarget();
+            }
+            else
+            {
+                // 사거리 안이면 정지 + 공격
+                mRigidbody.linearVelocity = Vector2.zero;
+
+                mRangedAttackTimer += Time.fixedDeltaTime;
+                if (mRangedAttackTimer >= mEnemyData.mAttackInterval)
+                {
+                    mRangedAttackTimer = 0f;
+                    FireProjectile();
+                }
+            }
+        }
+
+        private void FireProjectile()
+        {
+            if (mEnemyData.mProjectilePrefab == null || mTarget == null)
+            {
+                return;
+            }
+
+            Vector2 direction = ((Vector2)mTarget.position - (Vector2)transform.position).normalized;
+
+            GameObject projGo = Instantiate(mEnemyData.mProjectilePrefab, transform.position, Quaternion.identity);
+            projGo.layer = LayerMask.NameToLayer("EnemyProjectile");
+
+            // EnemyProjectile 컴포넌트 사용 (Projectile과 별도)
+            EnemyProjectile proj = projGo.GetComponent<EnemyProjectile>();
+            if (proj == null)
+            {
+                proj = projGo.AddComponent<EnemyProjectile>();
+            }
+            proj.Initialize(mEnemyData.mBaseDamage, 6f, direction, 3f);
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            projGo.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         private void OnCollisionStay2D(Collision2D collision)
@@ -98,15 +151,41 @@ namespace Vams2.InGame.Enemy
 
         private void OnDeath()
         {
-            // 드롭 처리
             if (mDrop != null)
             {
                 mDrop.SpawnDrops(transform.position);
             }
 
-            // 풀 반환 (비활성화)
+            // 엘리트 분열
+            if (mEnemyData.mAiType == EnemyAiType.EliteSplit && mEnemyData.mSplitEnemyData != null)
+            {
+                SpawnSplitEnemies();
+            }
+
             mRigidbody.linearVelocity = Vector2.zero;
             gameObject.SetActive(false);
+        }
+
+        private void SpawnSplitEnemies()
+        {
+            for (int i = 0; i < mEnemyData.mSplitCount; i++)
+            {
+                float offsetX = (i == 0) ? -0.5f : 0.5f;
+                Vector3 spawnPos = transform.position + new Vector3(offsetX, 0f, 0f);
+
+                // EnemySpawner를 통하지 않고 직접 생성
+                GameObject splitGo = Instantiate(gameObject, spawnPos, Quaternion.identity);
+                splitGo.SetActive(true);
+
+                EnemyBehaviour splitBehaviour = splitGo.GetComponent<EnemyBehaviour>();
+                if (splitBehaviour != null)
+                {
+                    splitBehaviour.Initialize(mEnemyData.mSplitEnemyData, mTarget, 1f);
+                }
+
+                // 작은 크기
+                splitGo.transform.localScale = Vector3.one * 0.7f;
+            }
         }
 
         private void OnDisable()

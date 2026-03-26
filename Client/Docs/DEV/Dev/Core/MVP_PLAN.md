@@ -136,32 +136,32 @@
 
 ### Phase 4-2: 액티브 스킬 5종 구현 (매직 볼트 제외)
 
-- [ ] SpinningBladeSkill 구현 (캐릭터 주변 회전, 레벨업 시 검 수 증가)
-- [ ] FireballSkill 구현 (랜덤 방향 폭발 투사체, 레벨업 시 반경 증가)
-- [ ] IceSpearSkill 구현 (관통 투사체 + 감속 디버프, 레벨업 시 감속률 증가)
-- [ ] LightningSkill 구현 (가까운 적 체인 데미지, 레벨업 시 체인 수 증가)
-- [ ] PoisonCloudSkill 구현 (장판 설치, 지속 데미지, 레벨업 시 크기 증가)
-- [ ] 각 스킬 SkillData 인스턴스 생성 (Lv1~5 수치 테이블)
+- [x] SpinningBladeSkill 구현 (캐릭터 주변 회전, 레벨업 시 검 수 증가)
+- [x] FireballSkill 구현 (랜덤 방향 폭발 투사체, 레벨업 시 반경 증가)
+- [x] IceSpearSkill 구현 (관통 투사체 + 감속 디버프, 레벨업 시 감속률 증가)
+- [x] LightningSkill 구현 (가까운 적 체인 데미지, 레벨업 시 체인 수 증가)
+- [x] PoisonCloudSkill 구현 (장판 설치, 지속 데미지, 레벨업 시 크기 증가)
+- [x] 각 스킬 SkillData 인스턴스 생성 (Lv1~5 수치 테이블)
 
 ### Phase 4-3: 패시브 스킬 4종 구현
 
-- [ ] SkillManager.ApplyPassive() 구현 (패시브 타입별 PlayerStats 보정)
-- [ ] 마나 서지: 공격속도 +10%/Lv
-- [ ] 원소 핵: 원소 데미지 +15%/Lv
-- [ ] 마법 갑옷: 방어 +5/Lv, 넉백 저항 +20%/Lv
-- [ ] 신속의 부츠: 이속 +8%/Lv, 회피 +3%/Lv
-- [ ] 각 패시브 SkillData 인스턴스 생성
+- [x] SkillManager.ApplyPassive() 구현 (패시브 타입별 PlayerStats 보정)
+- [x] 마나 서지: 공격속도 +10%/Lv
+- [x] 원소 핵: 원소 데미지 +15%/Lv
+- [x] 마법 갑옷: 방어 +5/Lv, 넉백 저항 +20%/Lv
+- [x] 신속의 부츠: 이속 +8%/Lv, 회피 +3%/Lv
+- [x] 각 패시브 SkillData 인스턴스 생성
 
 ### Phase 4-4: 적 종류 추가
 
-- [ ] 늑대 EnemyData 생성 (FastChase AI, HP 15, DMG 8, 이속 6.0)
-- [ ] 스켈레톤 EnemyData 생성 (Ranged AI, HP 20, DMG 10, 이속 2.5)
-- [ ] 엘리트 슬라임 EnemyData 생성 (EliteSplit AI, HP 50, DMG 12, 이속 3.0)
-- [ ] EnemyBehaviour에 FastChase AI 추가 (높은 이속 직선 추적)
-- [ ] EnemyBehaviour에 Ranged AI 추가 (사거리 유지 + 투사체 발사)
-- [ ] EnemyBehaviour에 EliteSplit AI 추가 (사망 시 소형 2마리 스폰)
-- [ ] 적 투사체 프리팹 생성 (스켈레톤 화살)
-- [ ] M3 플레이 테스트 (10종 스킬, 패시브 적용, 4종 적 동작)
+- [x] 늑대 EnemyData 생성 (FastChase AI, HP 15, DMG 8, 이속 6.0)
+- [x] 스켈레톤 EnemyData 생성 (Ranged AI, HP 20, DMG 10, 이속 2.5)
+- [x] 엘리트 슬라임 EnemyData 생성 (EliteSplit AI, HP 50, DMG 12, 이속 3.0)
+- [x] EnemyBehaviour에 FastChase AI 추가 (높은 이속 직선 추적)
+- [x] EnemyBehaviour에 Ranged AI 추가 (사거리 유지 + 투사체 발사)
+- [x] EnemyBehaviour에 EliteSplit AI 추가 (사망 시 소형 2마리 스폰)
+- [x] 적 투사체 프리팹 생성 (스켈레톤 화살)
+- [x] M3 플레이 테스트 (10종 스킬, 패시브 적용, 4종 적 동작)
 
 ### Phase 5-1: 리소스 생성 — M4용 (`/gi`)
 

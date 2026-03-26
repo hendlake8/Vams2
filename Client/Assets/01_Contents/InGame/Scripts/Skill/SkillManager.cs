@@ -290,23 +290,65 @@ namespace Vams2.InGame.Skill
 
             SkillBase skill = null;
 
-            switch (data.mSkillCategory)
+            switch (data.mSkillId)
             {
-                case SkillCategory.Projectile:
+                case "MagicBolt":
                     MagicBoltSkill bolt = skillGo.AddComponent<MagicBoltSkill>();
                     if (data.mProjectilePrefab != null)
-                    {
                         bolt.SetProjectilePrefab(data.mProjectilePrefab);
-                    }
                     skill = bolt;
                     break;
-                // 나머지 스킬은 Phase 4-2에서 추가
+
+                case "SpinningBlade":
+                    SpinningBladeSkill blade = skillGo.AddComponent<SpinningBladeSkill>();
+                    Sprite bladeSprite = LoadSprite("Skill/spinning_blade");
+                    if (bladeSprite != null)
+                        blade.SetBladeSprite(bladeSprite);
+                    skill = blade;
+                    break;
+
+                case "Fireball":
+                    FireballSkill fireball = skillGo.AddComponent<FireballSkill>();
+                    if (data.mProjectilePrefab != null)
+                        fireball.SetProjectilePrefab(data.mProjectilePrefab);
+                    skill = fireball;
+                    break;
+
+                case "IceSpear":
+                    IceSpearSkill ice = skillGo.AddComponent<IceSpearSkill>();
+                    if (data.mProjectilePrefab != null)
+                        ice.SetProjectilePrefab(data.mProjectilePrefab);
+                    skill = ice;
+                    break;
+
+                case "Lightning":
+                    skill = skillGo.AddComponent<LightningSkill>();
+                    break;
+
+                case "PoisonCloud":
+                    PoisonCloudSkill poison = skillGo.AddComponent<PoisonCloudSkill>();
+                    Sprite cloudSprite = LoadSprite("Skill/poison_cloud");
+                    if (cloudSprite != null)
+                        poison.SetCloudSprite(cloudSprite);
+                    skill = poison;
+                    break;
+
                 default:
                     skill = skillGo.AddComponent<MagicBoltSkill>();
                     break;
             }
 
             return skill;
+        }
+
+        private Sprite LoadSprite(string relativePath)
+        {
+            string fullPath = "Assets/01_Contents/InGame/RES/Bundle/Textures/" + relativePath + ".png";
+            #if UNITY_EDITOR
+            return UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(fullPath);
+            #else
+            return null;
+            #endif
         }
 
         private void ShuffleList(List<SkillChoice> list)

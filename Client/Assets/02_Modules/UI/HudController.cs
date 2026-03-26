@@ -24,6 +24,9 @@ namespace Vams2.UI
         [Header("스킬 아이콘")]
         [SerializeField] private UnityEngine.UI.Image[] mSkillIcons;
 
+        // 쿨다운 오버레이 (런타임에 자동 생성)
+        private UnityEngine.UI.Image[] mCooldownOverlays;
+
         private PlayerStats mPlayerStats;
         private SkillManager mSkillManager;
         private System.Func<float> mGetElapsedTime;
@@ -46,14 +49,35 @@ namespace Vams2.UI
             UpdateExpBar();
             UpdateLevelText();
 
-            // 스킬 아이콘 초기화 (비활성)
+            // 스킬 아이콘 초기화 + 쿨다운 오버레이 생성
             if (mSkillIcons != null)
             {
+                mCooldownOverlays = new UnityEngine.UI.Image[mSkillIcons.Length];
                 for (int i = 0; i < mSkillIcons.Length; i++)
                 {
                     if (mSkillIcons[i] != null)
                     {
                         mSkillIcons[i].enabled = false;
+
+                        // 쿨다운 오버레이 (Filled Image)
+                        GameObject overlayGo = new GameObject("CooldownOverlay");
+                        overlayGo.transform.SetParent(mSkillIcons[i].transform, false);
+                        RectTransform oRect = overlayGo.AddComponent<RectTransform>();
+                        oRect.anchorMin = Vector2.zero;
+                        oRect.anchorMax = Vector2.one;
+                        oRect.offsetMin = Vector2.zero;
+                        oRect.offsetMax = Vector2.zero;
+
+                        UnityEngine.UI.Image overlay = overlayGo.AddComponent<UnityEngine.UI.Image>();
+                        overlay.color = new Color(0f, 0f, 0f, 0.6f);
+                        overlay.type = UnityEngine.UI.Image.Type.Filled;
+                        overlay.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360;
+                        overlay.fillOrigin = 2; // Top
+                        overlay.fillClockwise = true;
+                        overlay.fillAmount = 0f;
+                        overlay.raycastTarget = false;
+
+                        mCooldownOverlays[i] = overlay;
                     }
                 }
             }
@@ -116,10 +140,26 @@ namespace Vams2.UI
                 {
                     mSkillIcons[i].sprite = activeSlots[i].mData.mIcon;
                     mSkillIcons[i].enabled = true;
+
+                    // 쿨다운 오버레이 업데이트
+                    if (mCooldownOverlays != null && mCooldownOverlays[i] != null)
+                    {
+                        float cooldownRatio = 0f;
+                        if (activeSlots[i].mSkillInstance != null)
+                        {
+                            cooldownRatio = activeSlots[i].mSkillInstance.GetCooldownRatio();
+                        }
+                        mCooldownOverlays[i].fillAmount = cooldownRatio;
+                        mCooldownOverlays[i].enabled = cooldownRatio > 0.01f;
+                    }
                 }
                 else
                 {
                     mSkillIcons[i].enabled = false;
+                    if (mCooldownOverlays != null && mCooldownOverlays[i] != null)
+                    {
+                        mCooldownOverlays[i].enabled = false;
+                    }
                 }
             }
         }

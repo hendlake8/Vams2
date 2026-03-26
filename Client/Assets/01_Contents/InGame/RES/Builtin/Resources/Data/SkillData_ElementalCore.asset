@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0678465e75f934b489778e1994c7a135, type: 3}
+  m_Name: SkillData_ElementalCore
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.SkillData
+  mSkillId: ElementalCore
+  mSkillName: "\uC6D0\uC18C \uD575"
+  mDescription: "\uBAA8\uB4E0 \uC6D0\uC18C \uB370\uBBF8\uC9C0\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4"
+  mIcon: {fileID: 21300000, guid: c70a4110a223e00468e1dbc694a28122, type: 3}
+  mSkillType: 1
+  mSkillCategory: 5
+  mBaseDamage:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  mCooldown:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  mSpecialValue:
+  - 0.15
+  - 0.3
+  - 0.45
+  - 0.6
+  - 0.75
+  mProjectilePrefab: {fileID: 0}
+  mEffectPrefab: {fileID: 0}

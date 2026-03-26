@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0678465e75f934b489778e1994c7a135, type: 3}
+  m_Name: SkillData_Fireball
+  m_EditorClassIdentifier: Assembly-CSharp::Vams2.Data.SkillData
+  mSkillId: Fireball
+  mSkillName: "\uD30C\uC774\uC5B4\uBCFC"
+  mDescription: "\uD3ED\uBC1C\uD558\uB294 \uD654\uC5FC\uAD6C\uB97C \uBC1C\uC0AC\uD55C\uB2E4"
+  mIcon: {fileID: 21300000, guid: 84194737c9a06db4f9f6aae3d66a6a67, type: 3}
+  mSkillType: 0
+  mSkillCategory: 2
+  mBaseDamage:
+  - 25
+  - 30
+  - 36
+  - 43
+  - 50
+  mCooldown:
+  - 2
+  - 1.8
+  - 1.6
+  - 1.4
+  - 1.2
+  mSpecialValue:
+  - 1.5
+  - 1.8
+  - 2
+  - 2.3
+  - 2.5
+  mProjectilePrefab: {fileID: 582906935581317562, guid: 1ea4bc6a7464a774bb5c43123b22d4c6, type: 3}
+  mEffectPrefab: {fileID: 0}
