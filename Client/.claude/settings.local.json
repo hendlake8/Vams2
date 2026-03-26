@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:docs.unity3d.com)",
+      "Bash(claude mcp:*)",
+      "Bash(find D:GitPrjsVams2Client -name *.cs -type f)"
+    ]
+  }
+}
