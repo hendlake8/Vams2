@@ -66,14 +66,14 @@ crashlytics-build.properties
 .serena/
 
 # Claude Code 로컬 설정
-.claude/settings.local.json
+**/.claude/settings.local.json
 
 # SuperClaude 진행 상태
-.superclaud/
+**/.superclaud/
 
 # AI 생성 이미지 (원본은 E:/AIRes/Img에 보존)
-GenImg/
-GenHistory/
+**/GenImg/
+**/GenHistory/
 
 # Rider
 .idea/
