@@ -449,12 +449,7 @@ namespace Vams2.InGame.Skill
 
         private Sprite LoadSprite(string relativePath)
         {
-            string fullPath = "Assets/01_Contents/InGame/RES/Bundle/Textures/" + relativePath + ".png";
-            #if UNITY_EDITOR
-            return UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(fullPath);
-            #else
-            return null;
-            #endif
+            return Resources.Load<Sprite>("Sprites/" + relativePath);
         }
 
         private void ShuffleList(List<SkillChoice> list)

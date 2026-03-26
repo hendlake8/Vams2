@@ -35,11 +35,8 @@ namespace Vams2.InGame.Drop
             {
                 mSpriteRenderer.sortingLayerName = "Drops";
                 string spriteName = GetSpriteNameForType(itemType);
-                #if UNITY_EDITOR
-                Sprite spr = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(
-                    "Assets/01_Contents/InGame/RES/Bundle/Textures/Drop/" + spriteName + ".png");
+                Sprite spr = Resources.Load<Sprite>("Sprites/Drop/" + spriteName);
                 if (spr != null) mSpriteRenderer.sprite = spr;
-                #endif
             }
 
             mPulseColor = GetPulseColorForType(itemType);

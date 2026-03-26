@@ -56,12 +56,7 @@ namespace Vams2.InGame.Skill
 
         private Sprite LoadSpriteFromTextures(string relativePath)
         {
-            #if UNITY_EDITOR
-            return UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(
-                "Assets/01_Contents/InGame/RES/Bundle/Textures/" + relativePath + ".png");
-            #else
-            return null;
-            #endif
+            return Resources.Load<Sprite>("Sprites/" + relativePath);
         }
     }
 

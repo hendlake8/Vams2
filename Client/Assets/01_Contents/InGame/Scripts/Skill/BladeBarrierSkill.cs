@@ -22,10 +22,7 @@ namespace Vams2.InGame.Skill
             base.Initialize(data, level, stats);
             mEnemyLayerMask = LayerMask.GetMask("Enemy");
 
-            #if UNITY_EDITOR
-            mBladeSprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(
-                "Assets/01_Contents/InGame/RES/Bundle/Textures/Skill/spinning_blade.png");
-            #endif
+            mBladeSprite = Resources.Load<Sprite>("Sprites/Skill/spinning_blade");
 
             CreateBlades();
         }
