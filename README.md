@@ -35,22 +35,23 @@
 
 ## 구현 과정 문서
 
-모든 기획/설계/구현 과정이 `Docs/` 폴더에 기록되어 있습니다.
+모든 기획/설계/구현 과정이 `Client/Docs/` 폴더에 기록되어 있습니다.
 
-```
-Docs/
-├── GDD/Core/
-│   ├── GAME_CONCEPT_BRIEF.md    ← 브레인스토밍 결과 브리프
-│   └── GDD.md                   ← 게임 기획서 (전체)
-│
-├── DEV/Dev/Core/
-│   ├── IMPLEMENTATION_DESIGN.md ← 구현 설계서 (시스템 아키텍처)
-│   └── MVP_PLAN.md              ← 구현 계획서 (Phase별 태스크)
-│
-└── CM/                          ← 대화 기록 (기획/구현 과정)
-    ├── 최초 기획/Phase_01/CHAT_LOG.md
-    └── 구현1/Phase_01/CHAT_LOG.md
-```
+**기획**
+- [GAME_CONCEPT_BRIEF.md](Client/Docs/GDD/Core/GAME_CONCEPT_BRIEF.md) — 브레인스토밍 결과 브리프
+- [GDD.md](Client/Docs/GDD/Core/GDD.md) — 게임 기획서 (전체)
+
+**설계/구현**
+- [IMPLEMENTATION_DESIGN.md](Client/Docs/DEV/Dev/Core/IMPLEMENTATION_DESIGN.md) — 구현 설계서 (시스템 아키텍처)
+- [MVP_PLAN.md](Client/Docs/DEV/Dev/Core/MVP_PLAN.md) — 구현 계획서 (Phase별 태스크)
+
+**대화 기록**
+- [최초 기획 CHAT_LOG](Client/Docs/CM/%EC%B5%9C%EC%B4%88%20%EA%B8%B0%ED%9A%8D/Phase_01/CHAT_LOG.md) — 기획 브레인스토밍 과정
+- [구현1 CHAT_LOG](Client/Docs/CM/%EA%B5%AC%ED%98%841/Phase_01/CHAT_LOG.md) — MVP 구현 과정
+
+**리소스**
+- [GenHistory/](Client/GenHistory/) — 리소스 생성에 사용한 프롬프트 기록
+- [GenImg/](Client/GenImg/) — AI로 생성한 게임 리소스
 
 ## 핵심 시스템
 
