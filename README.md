@@ -3,6 +3,8 @@
 판타지 세계관의 모바일 싱글 뱀서라이크 게임.
 **기획, 리소스 생성, 구현 전 과정을 AI(Claude Code + ComfyUI)로 진행한 프로젝트.**
 
+<video src="https://github.com/user-attachments/assets/9b58bb35-4127-4786-bd94-90051583af74" autoplay loop muted playsinline width="300"></video>
+
 ## 개요
 
 | 항목 | 내용 |
