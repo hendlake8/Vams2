@@ -1,11 +1,6 @@
 name: Deploy WebGL to Pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'Web/**'
-
   workflow_dispatch:
 
 permissions:
