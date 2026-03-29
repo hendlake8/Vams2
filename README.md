@@ -5,7 +5,7 @@
 
 ![플레이 미리보기](gameplay_preview.gif)
 
-[전체 플레이 영상 보기](https://github.com/user-attachments/assets/9b58bb35-4127-4786-bd94-90051583af74)
+▶ [브라우저에서 플레이하기](https://hendlake8.github.io/Vams2/)
 
 ## 개요
 
